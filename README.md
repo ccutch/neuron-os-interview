@@ -6,6 +6,15 @@ implemented for Mac and Linux.
 
 ## Build instructions
 
+To binaries of the two executables use the following commands:
+
+```
+$ go build ./cmd/application    # HTTP Server
+$ go build ./cmd/installer      # Start On Boot
+```
+
+Advanced usage can be found in the [#Installation_guide](Installation guide).
+
 
 
 ## API documentation
@@ -77,7 +86,7 @@ $ go test ./...
 
 ## Interview Change Log
 
-4:30 - Started on problem setup application structure using idiomatic go and snippets from prompt.
-5:00 - Finished first pass of the implementation using my local linux development environment and blind coding for mac, to test on laptop.
-5:05 - Working on documentation before switching to better test environment.
-5:15 - Updated README file with basic go commands and instructions. Pushing first version to git version control.
+- 4:30 - Started on problem setup application structure using idiomatic go and snippets from prompt.
+- 5:00 - Finished first pass of the implementation using my local linux development environment and blind coding for mac, to test on laptop.
+- 5:05 - Working on documentation before switching to better test environment.
+- 5:15 - Updated README file with basic go commands and instructions. Pushing first version to git version control.
