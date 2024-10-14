@@ -92,6 +92,8 @@ $ curl -XPOST http://localhost:8080/execute -d '{"type":"sysinfo","payload":""}'
 
 ## A short clip that shows the "app in action"
 
+https://github.com/user-attachments/assets/f9fd8c88-65e2-463d-843d-8c81db1fbb6d
+
 
 ## Interview Change Log
 
