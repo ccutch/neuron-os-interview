@@ -6,7 +6,7 @@ After=network.target
 ExecStart={{.Exec}}
 Restart=always
 User={{.Name}}
-WorkingDirectory=/home/{{.Name}}
+WorkingDirectory={{.Home}}
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=NODE_ENV=production
 

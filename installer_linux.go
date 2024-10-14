@@ -21,8 +21,9 @@ var (
 
 	AppData = struct {
 		Name string
-		Exec []string
-	}{"NeuronOS", []string{execFile}}
+		Exec string
+		Home string
+	}{"NeuronOS", execFile, os.Getenv("HOME")}
 )
 
 func EnableStartOnBoot() error {
