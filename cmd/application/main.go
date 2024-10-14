@@ -11,7 +11,7 @@ import (
 func main() {
 	commander := neuronos.NewCommander()
 	server := &http.Server{
-		Addr:    ":7000",
+		Addr:    ":8080",
 		Handler: handleRequests(commander),
 	}
 	log.Fatal(server.ListenAndServe())

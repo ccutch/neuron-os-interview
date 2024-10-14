@@ -1,8 +1,8 @@
 package neuronos
 
 import (
-	"errors"
 	"fmt"
+	"io"
 	"net"
 	"net/http"
 	"net/url"
@@ -45,12 +45,10 @@ func (c *commander) GetSystemInfo() (SystemInfo, error) {
 	}
 
 	addrs, err := net.LookupAddr(hostname)
-	if err != nil {
-		return SystemInfo{}, err
-	}
-
-	if len(addrs) < 1 {
-		return SystemInfo{}, errors.New("no valid ip address")
+	if err != nil || len(addrs) < 1 {
+		res, _ := http.Get("https://api.ipify.org")
+		ip, _ := io.ReadAll(res.Body)
+		addrs = []string{string(ip)}
 	}
 
 	return SystemInfo{
