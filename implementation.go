@@ -1,6 +1,10 @@
 package neuronos
 
-import "os"
+import (
+	"errors"
+	"net"
+	"os"
+)
 
 type commander struct{}
 
@@ -18,10 +22,17 @@ func (c *commander) GetSystemInfo() (SystemInfo, error) {
 		return SystemInfo{}, err
 	}
 
-	// Get IP address (implement this)
+	addrs, err := net.LookupAddr(hostname)
+	if err != nil {
+		return SystemInfo{}, err
+	}
+
+	if len(addrs) < 1 {
+		return SystemInfo{}, errors.New("no valid ip address")
+	}
 
 	return SystemInfo{
 		Hostname:  hostname,
-		IPAddress: "implement me",
+		IPAddress: addrs[0],
 	}, nil
 }

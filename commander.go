@@ -2,6 +2,7 @@ package neuronos
 
 import "time"
 
+// Execution Data Models
 type Commander interface {
 	Ping(host string) (PingResult, error)
 	GetSystemInfo() (SystemInfo, error)
@@ -17,6 +18,7 @@ type SystemInfo struct {
 	IPAddress string
 }
 
+// Communication Data Models
 type CommandRequest struct {
 	Type    string `json:"type"`    // "ping" or "sysinfo"
 	Payload string `json:"payload"` // For ping, this is the host

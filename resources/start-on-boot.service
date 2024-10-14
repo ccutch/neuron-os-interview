@@ -1,0 +1,14 @@
+[Unit]
+Description=Neuronos Demo Service
+After=network.target
+
+[Service]
+ExecStart={{.Exec}}
+Restart=always
+User={{.Name}}
+WorkingDirectory=/home/{{.Name}}
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
