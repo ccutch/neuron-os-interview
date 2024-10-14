@@ -16,7 +16,6 @@ $ go build ./cmd/installer      # Start On Boot
 Advanced usage can be found in the [#Installation_guide](Installation guide).
 
 
-
 ## API documentation
 
 Our API can be broken down into two sets of documentation, one for the Go developer and one for HTTP clients.
@@ -57,10 +56,10 @@ using your favorite llm.
 
 ```
 # Example usage for Ping feature.
-$ curl -XPOST http://localhost:8080/execute -d '{"type":"ping","payload":"www.example.com"}
+$ curl -XPOST http://localhost:8080/execute -d '{"type":"ping","payload":"www.example.com"}'
 
 # Example usage for GetSystemInfo feature.
-$ curl -XPOST http://localhost:8080/execute -d '{"type":"sysinfo","payload":""}
+$ curl -XPOST http://localhost:8080/execute -d '{"type":"sysinfo","payload":""}'
 ```
 
 ## Installation guide
@@ -76,9 +75,19 @@ $ go run ./cmd/installer
 ```
 
 ## Testing
-Go tests are written for all non-main packages. To run all use the `go test` command given below.
+Unittests are written for all non-main packages. To run all use the `go test` command given below.
 ```
 $ go test ./...
+```
+
+To test the server integration you can use the following commands:
+```
+$ go run ./cmd/application
+```
+
+```
+$ curl -XPOST http://localhost:8080/execute -d '{"type":"ping","payload":"www.example.com"}'
+$ curl -XPOST http://localhost:8080/execute -d '{"type":"sysinfo","payload":""}'
 ```
 
 ## A short clip that shows the "app in action"
@@ -90,3 +99,4 @@ $ go test ./...
 - 5:00 - Finished first pass of the implementation using my local linux development environment and blind coding for mac, to test on laptop.
 - 5:05 - Working on documentation before switching to better test environment.
 - 5:15 - Updated README file with basic go commands and instructions. Pushing first version to git version control.
+- 5:50 - Finished running and polishing unittests and documentation.

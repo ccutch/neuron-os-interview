@@ -11,7 +11,7 @@ import (
 func main() {
 	commander := neuronos.NewCommander()
 	server := &http.Server{
-		Addr:    ":8080",
+		Addr:    ":7000",
 		Handler: handleRequests(commander),
 	}
 	log.Fatal(server.ListenAndServe())
@@ -25,6 +25,10 @@ func handleRequests(cmdr neuronos.Commander) http.Handler {
 
 func handleCommand(cmdr neuronos.Commander) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != "POST" {
+			http.Error(w, "invalid method", http.StatusMethodNotAllowed)
+			return
+		}
 		var (
 			req neuronos.CommandRequest
 			res neuronos.CommandResponse
